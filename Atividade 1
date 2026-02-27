@@ -1,0 +1,15 @@
+create database exMyNode;
+
+use exMyNode;
+
+create table produtos(
+	codProduto int auto_increment primary key,
+    descricao varchar (80) not null,
+    quantidade int
+);
+
+insert into produtos(descricao, quantidade) values ('Maça', 20);
+
+insert into produtos(descricao, quantidade) values ('Pineapple', 15), ('Grape', 20);
+
+select * from produtos;
