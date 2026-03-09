@@ -9,13 +9,20 @@ console.log("conectou no mysql");
 globalThis.connectin = connection;
 return connection; 
 }     
-
+/*
 async function selectprodutos(){
     const conn = await connect();
     return await conn.query("select * from Produtos;")
     
 }
+*/
 
-module.exports = {selectprodutos};
+async function insertProdutos(Produtos) {
+    const conn = await connect();
+    const sql = "INSERT INTO Produtos(descricao, quantidade) VALUES (?,?);";
+    const values = [Produtos.descricao, Produtos.quantidade];
+    await conn.query(sql, values);
+}
+module.exports = {insertProdutos};
 
 
